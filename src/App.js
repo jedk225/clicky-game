@@ -1,25 +1,34 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Jumbotron from './components/jumbotron/jumbotron';
+import MemoryCard from "./components/MemoryCard";
+import players from "./players.json";
+import Navbar from './components/Navbar';
 
 class App extends Component {
+
+  state = {
+    players,
+    clickedPlayer: [],
+    score: 0
+  };
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+        <Navbar />
+        <Jumbotron />
+        <div className="board">
+          {this.state.players.map(player => (
+            <MemoryCard
+              imageClick={this.imageClick}
+              id={player.id}
+              key={player.id}
+              image={player.image}
+            />
+          ))}
+        </div>
+
       </div>
     );
   }

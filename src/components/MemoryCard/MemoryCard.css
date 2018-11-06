@@ -1,0 +1,15 @@
+.card {
+    width: 300px;
+    height: 169px;
+    margin-bottom: 30px;
+    box-shadow: 0 3px 6px #999, 0 3px 6px #999;
+    border: 3px solid white;
+    text-align: center;
+  }
+
+  img {
+    max-width: 298px;
+    max-height: 167px;
+    border-radius: 5%;
+    margin: 0 auto;
+  }
