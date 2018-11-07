@@ -18,84 +18,84 @@ class App extends Component {
     const currentPlayer = event.target.alt;
     const playerPreviouslySelected = this.state.clickedPlayer.indexOf(currentPlayer) > -1;
 
-    switch (playerPreviouslySelected) {
-      case playerPreviouslySelected:
-      alert(currentPlayer)
+    // PRACTICE SWITCHES HERE!!!!!!!!
+    // switch (playerPreviouslySelected) {
+    //   case playerPreviouslySelected:
+    //   //alert(currentPlayer)
 
-        this.setState({
-          player: this.state.players.sort( (a, b) =>  {
-            return 0.5 - Math.random();
-          }),
-          clickedPlayer: this.state.clickedPlayer.concat(
-            currentPlayer
-          ),
-          score: this.state.score + 1
-        });
-        break;
-      default:
-        this.setState({
-          player: this.state.players.sort((a, b) =>  {
-            return 0.5 - Math.random();
-          }),
-          clickedPlayer: [],
-          score: 0
-        });
-        alert(currentPlayer)
-        alert("loser");
+    //     this.setState({
+    //       player: this.state.players.sort( (a, b) =>  {
+    //         return 0.5 - Math.random();
+    //       }),
+    //       clickedPlayer: this.state.clickedPlayer.concat(
+    //         currentPlayer
+    //       ),
+    //       score: this.state.score + 1
+    //     });
+    //     break;
+    //   default:
+    //     this.setState({
+    //       player: this.state.players.sort((a, b) =>  {
+    //         return 0.5 - Math.random();
+    //       }),
+    //       clickedPlayer: [],
+    //       score: 0
+    //     });
+    //     alert(currentPlayer)
+    //     alert("loser");
+    // }
+    // switch (this.state.score) {
+    //   case 12:
+    //     alert("Winner");
+    //     this.setState({
+    //       player: this.state.players.sort((a, b) =>  {
+    //         return 0.5 - Math.random();
+    //       }),
+    //       clickedPlayer: [],
+    //       score: 0
+    //     });
+    //     break;
+    //   default:
+    //     console.log(this.state.score);
+    // }
+
+
+    if (playerPreviouslySelected) {
+      this.setState({
+        player: this.state.players.sort(function (a, b) {
+          return 0.5 - Math.random();
+        }),
+        clickedPlayer: [],
+        score: 0
+      });
+      //alert(this.state.score)
+      alert("You lose. Play again?");
     }
-    switch (this.state.score) {
-      case 12:
-        alert("Winner");
-        this.setState({
-          player: this.state.players.sort((a, b) =>  {
-            return 0.5 - Math.random();
-          }),
-          clickedPlayer: [],
-          score: 0
-        });
-        break;
-      default:
-        console.log(this.state.score);
+    else if (!playerPreviouslySelected) {
+      //alert(this.state.score)
+      this.setState({
+        player: this.state.players.sort(function (a, b) {
+          return 0.5 - Math.random();
+        }),
+        clickedPlayer: this.state.clickedPlayer.concat(
+          currentPlayer
+        ),
+        score: this.state.score + 1
+      });
     }
 
+    if (this.state.score === 12) {
+      alert(this.state.score)
 
-    // if (playerPreviouslySelected) {
-    //   this.setState({
-    //     player: this.state.players.sort(function (a, b) {
-    //       return 0.5 - Math.random();
-    //     }),
-    //     clickedPlayer: [],
-    //     score: 0
-    //   });
-    //   alert(this.state.score)
-    //   alert("You lose. Play again?");
-    // }
-    // else if (!playerPreviouslySelected) {
-    //   alert(this.state.score)
-    //   this.setState({
-    //     player: this.state.players.sort(function (a, b) {
-    //       return 0.5 - Math.random();
-    //     }),
-    //     clickedPlayer: this.state.clickedPlayer.concat(
-    //       currentPlayer
-    //     ),
-    //     score: this.state.score + 1
-    //   });
-    // }
-
-    // if (this.state.score === 12) {
-    //   alert(this.state.score)
-
-    //   alert("Winner");
-    //   this.setState({
-    //     player: this.state.players.sort(function (a, b) {
-    //       return 0.5 - Math.random();
-    //     }),
-    //     clickedPlayer: [],
-    //     score: 0
-    //   });
-    // }
-
+      alert("Winner");
+      this.setState({
+        player: this.state.players.sort(function (a, b) {
+          return 0.5 - Math.random();
+        }),
+        clickedPlayer: [],
+        score: 0
+      });
+    }
 
   }
 
@@ -104,7 +104,7 @@ class App extends Component {
     return (
       <div>
         <Navbar
-        score={this.state.score} />
+          score={this.state.score} />
         <Jumbotron />
         <div className="board">
           {this.state.players.map(player => (
@@ -113,6 +113,7 @@ class App extends Component {
               id={player.id}
               key={player.id}
               image={player.image}
+              name={player.name}
             />
           ))}
         </div>
