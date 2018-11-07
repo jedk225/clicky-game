@@ -69,7 +69,7 @@ class App extends Component {
         score: 0
       });
       //alert(this.state.score)
-      alert("You lose. Play again?");
+      //alert("You lose. Play again?");
     }
     else if (!playerPreviouslySelected) {
       //alert(this.state.score)
@@ -85,9 +85,9 @@ class App extends Component {
     }
 
     if (this.state.score === 12) {
-      alert(this.state.score)
+      //alert(this.state.score)
 
-      alert("Winner");
+      alert("Winner!");
       this.setState({
         player: this.state.players.sort(function (a, b) {
           return 0.5 - Math.random();
