@@ -15,8 +15,7 @@ class App extends Component {
 
   //when you click on a card the player is taken out of the array
   imageClick = event => {
-    
-    const currentPlayer = this.state.players[1].id;
+    const currentPlayer = event.target.alt;
     const playerPreviouslySelected = this.state.clickedPlayer.indexOf(currentPlayer) > -1;
 
     switch (playerPreviouslySelected) {
@@ -24,7 +23,7 @@ class App extends Component {
       alert(currentPlayer)
 
         this.setState({
-          player: this.state.players.sort(function (a, b) {
+          player: this.state.players.sort( (a, b) =>  {
             return 0.5 - Math.random();
           }),
           clickedPlayer: this.state.clickedPlayer.concat(
@@ -35,20 +34,20 @@ class App extends Component {
         break;
       default:
         this.setState({
-          player: this.state.players.sort(function (a, b) {
+          player: this.state.players.sort((a, b) =>  {
             return 0.5 - Math.random();
           }),
           clickedPlayer: [],
           score: 0
         });
         alert(currentPlayer)
-        alert("You lose. Play again?");
+        alert("loser");
     }
     switch (this.state.score) {
       case 12:
         alert("Winner");
         this.setState({
-          player: this.state.players.sort(function (a, b) {
+          player: this.state.players.sort((a, b) =>  {
             return 0.5 - Math.random();
           }),
           clickedPlayer: [],
