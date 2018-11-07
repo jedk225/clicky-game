@@ -13,6 +13,94 @@ class App extends Component {
     score: 0
   };
 
+  //when you click on a card the player is taken out of the array
+  imageClick = event => {
+    
+    const currentPlayer = this.state.players[1].id;
+    const playerPreviouslySelected = this.state.clickedPlayer.indexOf(currentPlayer) > -1;
+
+    switch (playerPreviouslySelected) {
+      case playerPreviouslySelected:
+      alert(currentPlayer)
+
+        this.setState({
+          player: this.state.players.sort(function (a, b) {
+            return 0.5 - Math.random();
+          }),
+          clickedPlayer: this.state.clickedPlayer.concat(
+            currentPlayer
+          ),
+          score: this.state.score + 1
+        });
+        break;
+      default:
+        this.setState({
+          player: this.state.players.sort(function (a, b) {
+            return 0.5 - Math.random();
+          }),
+          clickedPlayer: [],
+          score: 0
+        });
+        alert(currentPlayer)
+        alert("You lose. Play again?");
+    }
+    switch (this.state.score) {
+      case 12:
+        alert("Winner");
+        this.setState({
+          player: this.state.players.sort(function (a, b) {
+            return 0.5 - Math.random();
+          }),
+          clickedPlayer: [],
+          score: 0
+        });
+        break;
+      default:
+        console.log(this.state.score);
+    }
+
+
+    // if (playerPreviouslySelected) {
+    //   this.setState({
+    //     player: this.state.players.sort(function (a, b) {
+    //       return 0.5 - Math.random();
+    //     }),
+    //     clickedPlayer: [],
+    //     score: 0
+    //   });
+    //   alert(this.state.score)
+    //   alert("You lose. Play again?");
+    // }
+    // else if (!playerPreviouslySelected) {
+    //   alert(this.state.score)
+    //   this.setState({
+    //     player: this.state.players.sort(function (a, b) {
+    //       return 0.5 - Math.random();
+    //     }),
+    //     clickedPlayer: this.state.clickedPlayer.concat(
+    //       currentPlayer
+    //     ),
+    //     score: this.state.score + 1
+    //   });
+    // }
+
+    // if (this.state.score === 12) {
+    //   alert(this.state.score)
+
+    //   alert("Winner");
+    //   this.setState({
+    //     player: this.state.players.sort(function (a, b) {
+    //       return 0.5 - Math.random();
+    //     }),
+    //     clickedPlayer: [],
+    //     score: 0
+    //   });
+    // }
+
+
+  }
+
+
   render() {
     return (
       <div>

@@ -7,7 +7,7 @@ const Navbar = props => (
 
   <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div className="navbar-nav ml-auto">
-      <p className="score">Score:  <span className="sr-only">(current)</span></p>
+      <p className="score">Score: {props.score}<span className="sr-only">(current)</span></p>
     </div>
   </div>
 </nav>
