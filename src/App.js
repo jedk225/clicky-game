@@ -103,7 +103,8 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Navbar />
+        <Navbar
+        score={this.state.score} />
         <Jumbotron />
         <div className="board">
           {this.state.players.map(player => (
